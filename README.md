@@ -28,8 +28,5 @@ License
 
 MIT
 
-
-**Free Software, Hell Yeah!**
-
 [HTML5 Boilerplate]:http://html5boilerplate.com/
 [jQuery]:http://jquery.com
