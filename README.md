@@ -1,7 +1,7 @@
 Boiler Site
 ===========
 
-This directory contains the primary boilerplate architecture for my primarily my Web 2 students, but anyone can use this.
+This directory contains the primary boilerplate architecture for my Web 2 students.
 
 What's in the box?
 ----
