@@ -9,6 +9,7 @@ What's in the box?
   - Basic HTML file with boilerplate code
   - Initial CSS structure and resets
   - Fundamental static website best-practice architecture
+  - A few basic jquery/js helper snippets
 
 Version
 ----
