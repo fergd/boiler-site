@@ -22,3 +22,11 @@
 }());
 
 // Place any jQuery/helper plugins in here.
+
+// Toggle a class on an element like the active state of a button
+$('.foo').toggle(function() { 
+   $('.active').click(); 
+   $(this).addClass("active");
+}, function() {
+   $(this).removeClass("active");
+});
