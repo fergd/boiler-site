@@ -1,0 +1,19 @@
+{
+  "name": "discovery-machine",
+  "version": "0.0.1",
+  "type": "git",
+  "license": "MIT",
+  "description": "UX exercise for Spiffly",
+  "repository": "https://github.com/fergd/discovery-machine.git",
+  "author": "Christan Fergus <christan.fergus@gmail.com>",
+  "private": true,
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-grunticon": "^2.2.3",
+    "grunt-postcss": "^0.8.0",
+    "grunt-sass": "^1.0.0"
+  }
+}
