@@ -1,27 +1,27 @@
 Boiler Site
 ===========
 
-This directory contains the primary boilerplate architecture for my Web 2 students.
+This directory contains the primary boilerplate architecture for my projects.
 
 What's in the box?
 ----
 
-  - Basic HTML file with boilerplate code
-  - Initial CSS structure and resets
-  - Fundamental static website best-practice architecture
+  - Grunt file with basic tasks including watch and grunticon (not configured)
+  - Basic HTML5 file with boilerplate code
+  - Initial Sass structure and resets
   - A few basic jquery/js helper snippets
 
 Version
 ----
 
-1.0
+2.0
 
 Tech
 -----------
 
 This boiler site takes its inspiration from these places and uses this technology:
 
-* [HTML5 Boilerplate] - the gold standard of boilerplates, standards, and best practices
+* [Normalize] - a basic CSS reset file
 * [jQuery]  
 
 License
@@ -29,5 +29,5 @@ License
 
 MIT
 
-[HTML5 Boilerplate]:http://html5boilerplate.com/
+[Normalize]:https://necolas.github.io/normalize.css/
 [jQuery]:http://jquery.com
