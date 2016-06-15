@@ -4,15 +4,17 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON("package.json"),
 
         paths: {
-            sass: 'styles/sass',
-            devCSS: 'styles/css',
-            prodCSS: 'styles/deploy/styles',
+            sass: 'app/styles/sass',
+            devCSS: 'app/styles/css',
+            prodCSS: 'app/styles/deploy/styles',
         }, 
-
         connect: {
-            uses_defaults: {}
+            uses_defaults: {},
+            // if your files are not in the root directory, set the dir here
+            options: {
+                base: 'app'
+            }
         },
-
         sass: {
             global: {
                 options: {
@@ -28,8 +30,7 @@ module.exports = function(grunt) {
                     ext: '.css'
                 }, ],
             }
-        }, // sass
-
+        }, 
         watch: {
             options: {
                 livereload: true,
@@ -37,19 +38,18 @@ module.exports = function(grunt) {
                 port: 8000
             },
             site: {
-                files: ['**/*.html', 'js/**/*.{js,json}', 'styles/css/*.css', 'images/**/*.{png,jpg,jpeg,gif,webp,svg}']
+                files: ['**/*.html', 'js/**/*.{js,json}', 'app/styles/css/*.css', 'app/images/**/*.{png,jpg,jpeg,gif,webp,svg}']
             },
             js: {
-                files: ['scripts/*.js'],
+                files: ['app/scripts/*.js'],
                 tasks: ["uglify"]
             },
             css: {
-                files: ["styles/sass/**/*.scss"],
+                files: ["app/styles/sass/**/*.scss"],
                 tasks: ["sass"]
             },
 
-        }, // watch
-
+        },
         uglify: {
             options: {
                 mangle: false
@@ -70,7 +70,7 @@ module.exports = function(grunt) {
                 ]
             },
             dist: {
-                src: 'styles/css/*.css'
+                src: 'app/styles/css/*.css'
             }
         },
         svgmin: {
@@ -83,9 +83,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'images/svg',
+                    cwd: 'app/images/svg',
                     src: ['*.svg'],
-                    dest: 'images/output'
+                    dest: 'app/images/output'
                 }]
             }
         },
@@ -93,38 +93,76 @@ module.exports = function(grunt) {
             myIcons: {
                     files: [{
                         expand: true,
-                        cwd: 'images/svg',
+                        cwd: 'app/images/svg',
                         src: ['*.svg', '*.png'],
-                        dest: "images/output"
+                        dest: "app/images/output"
                     }],
                 options: {
-                    loadersnippet: "grunticon.loader.js",
                     defaultWidth: "24px",
                     datasvgcss: "../../styles/css/vendors/icons.data.svg.scss",
                     datapngcss: "../../styles/css/vendors/icons.data.png.scss",
                     urlpngcss: "../../styles/css/vendors/icons.fallback.scss",
-                    previewhtml: "../../trash/preview.html",
-                    loadersnippet: "../../trash/grunticon.loader.js"
+                    previewhtml: "../../../trash/preview.html",
+                    loadersnippet: "../../../trash/grunticon.loader.js"
                     // colors: {
                     //     black: "#000000"
                     // },
                 }
             }
-        }
-    });
+        },
+        clean: {
+            trash: [
+                'trash/*.*'
+            ],
+            cleanStuff: [
+                '<%= clean.trash %>',
+                'app/images/output',
+                'app/styles/css'
+            ],
+            deployClean: [
+                'build/images/svg',
+                'build/styles/sass'
+            ]
+            // javascript: [
+            //     // Coffee-generated
+            //     'public/scripts/js/',
+            //     // uglify-generated
+            //     'public/scripts/vendors/plugins.min.js'
+            // ],
+        },
+        copy: {
+          build: {
+            cwd: 'app',
+            src: [ '**' ],
+            dest: 'build',
+            expand: true
+          },
+        },
+
+          'gh-pages': {
+            options: {
+              base: 'build'
+            },
+            src: '**/*'
+          }
+   });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-svgmin');
     grunt.loadNpmTasks('grunt-grunticon');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-gh-pages');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     grunt.registerTask("default", ["connect", "sass",  "postcss", 'svgmin', 'grunticon:myIcons', "watch"]);
     grunt.registerTask("compile", ["uglify"]);
 
+    grunt.registerTask("cleanAll", ['clean']);
+    grunt.registerTask("buildAll", ['svgmin', 'grunticon:myIcons', 'sass', 'postcss']);
     grunt.registerTask("icons", ['svgmin', 'grunticon:myIcons']);
+    grunt.registerTask("deploy", ['buildAll', 'copy', 'clean:deployClean', 'gh-pages']);
 };
