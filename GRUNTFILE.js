@@ -3,12 +3,11 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
 
-        // Define paths.
         paths: {
             sass: 'styles/sass',
             devCSS: 'styles/css',
             prodCSS: 'styles/deploy/styles',
-        }, // paths
+        }, 
 
         connect: {
             uses_defaults: {}
@@ -44,10 +43,6 @@ module.exports = function(grunt) {
                 files: ['scripts/*.js'],
                 tasks: ["uglify"]
             },
-            // sass: {
-            //   files: ['styles/sass/*.sass'],
-            //   tasks: ['sass']
-            // },
             css: {
                 files: ["styles/sass/**/*.scss"],
                 tasks: ["sass"]
@@ -65,17 +60,19 @@ module.exports = function(grunt) {
                 }
             }
         },
-        // postcss: {
-        //     options: {
-        //         map: true,
-        //         processors: [
-        //             require('autoprefixer')({ browsers: ['last 1 version'] })
-        //         ]
-        //     },
-        //     dist: {
-        //         src: 'styles/css/*.css'
-        //     }
-        // },
+        postcss: {
+            options: {
+                map: true,
+                processors: [
+                    require('pixrem')(),
+                    require('autoprefixer')({ browsers: ['last 1 version'] }),
+                    require('cssnano')()
+                ]
+            },
+            dist: {
+                src: 'styles/css/*.css'
+            }
+        },
         svgmin: {
             dist: {
                 options: {
@@ -108,75 +105,25 @@ module.exports = function(grunt) {
                     urlpngcss: "../../styles/css/vendors/icons.fallback.scss",
                     previewhtml: "../../trash/preview.html",
                     loadersnippet: "../../trash/grunticon.loader.js"
+                    // colors: {
+                    //     black: "#000000"
+                    // },
                 }
             }
-        },
-
-        // grunticon: {
-        //     dist: {
-        //         files: [{
-        //             expand: true,
-        //             cwd: 'images/svg',
-        //             src: ['*.svg', '*.png'],
-        //             dest: "images"
-        //         }],
-        //         options: {
-        //             datasvgcss: "styles/sass/vendors/icons.data.svg.scss",
-        //             datapngcss: "styles/sass/vendors/icons.data.png.scss",
-        //             urlpngcss: "styles/sass/vendors/icons.fallback.scss",
-
-        //             previewhtml: "preview.html",
-
-        //             // grunticon loader code snippet filename
-        //             loadersnippet: "grunticon.loader.js",
-
-        //             // folder name (within dest) for png output
-        //             pngfolder: "../../images/png",
-
-        //             // relative path to fallback PNGs for the generated CSS file
-        //             pngpath: "../../../images/png",
-
-        //             // additional CSS to create
-        //             customselectors: {
-        //                 "*": [".icon-$1::before"]
-        //             },
-
-        //             // define which color variables are used
-        //             // colors: {
-        //             //     black: "#000000",
-        //             // },
-
-        //             // Template - to control output CSS
-        //             template: "grunticon-template.hbs",
-        //             defaultWidth: "24px"
-        //         }
-        //     }
-        // },
-        svgmin: {
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: 'images/svg',
-                    src: ['*.svg'],
-                    dest: 'images/svg/optimized'
-                }]
-            }
-        },
+        }
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    // grunt.loadNpmTasks('grunt-postcss');
+    grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-svgmin');
     grunt.loadNpmTasks('grunt-grunticon');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-gh-pages');
 
-    // grunt command
-    // grunt.registerTask("default", ["connect", "sass", "postcss", "grunticon:myIcons", "watch"]);
-    grunt.registerTask("default", ["connect", "sass",  "grunticon", "watch"]);
+    grunt.registerTask("default", ["connect", "sass",  "postcss", 'svgmin', 'grunticon:myIcons', "watch"]);
     grunt.registerTask("compile", ["uglify"]);
 
     grunt.registerTask("icons", ['svgmin', 'grunticon:myIcons']);
