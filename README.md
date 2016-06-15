@@ -17,13 +17,18 @@ What's in the box?
 
 ### Other Includes
   - Basic HTML5 file with boilerplate code
-  - Initial Sass structure and resets
+  - Initial Sass (Libsass) structure and resets
   - A few basic jquery/js helper snippets
 
 Version
 ----
 
 2.0
+
+## Requirements
+- Node
+- NPM
+- LiveReload browser extension
 
 ## Installation
 ` $ npm install `
