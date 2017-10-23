@@ -1,0 +1,14 @@
+{
+  "name": "Boiler-Gulp",
+  "version": "1.0.0",
+  "description": "Super naked site boilerplate.",
+  "license": "MIT",
+  "author": "Christan Fergus",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fergd/boiler-site"
+  },
+  "devDependencies": {
+    
+  }
+}

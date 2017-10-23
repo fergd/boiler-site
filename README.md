@@ -1,33 +1,26 @@
 Boiler Site
 ===========
 
-This directory contains the primary boilerplate architecture for my Web 2 students.
+The barbones startup environment. 
 
 What's in the box?
 ----
 
   - Basic HTML file with boilerplate code
-  - Initial CSS structure and resets
-  - Fundamental static website best-practice architecture
-  - A few basic jquery/js helper snippets
+  - Gulp task runner that
+    - Starts up a local server
 
 Version
 ----
 
 1.0
 
-Tech
+Installation
 -----------
-
-This boiler site takes its inspiration from these places and uses this technology:
-
-* [HTML5 Boilerplate] - the gold standard of boilerplates, standards, and best practices
-* [jQuery]  
+- NPM Install
 
 License
 ----
 
 MIT
 
-[HTML5 Boilerplate]:http://html5boilerplate.com/
-[jQuery]:http://jquery.com
