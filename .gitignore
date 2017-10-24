@@ -1,8 +1,4 @@
 node_modules/
-<<<<<<< HEAD
 .DS_Store/
-images/output/
-=======
 .npm
 npm-debug.log*
->>>>>>> boiler-gulp
