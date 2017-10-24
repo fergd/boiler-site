@@ -1,27 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "BoilerPlateSite",
-  "version": "0.0.1",
-  "type": "git",
-  "license": "MIT",
-  "description": "This site can be anything!",
-  "repository": "https://github.com/fergd/discovery-machine.git",
-  "author": "Christan Fergus <christan.fergus@gmail.com>",
-  "private": true,
-  "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-cli": "^0.1.13",
-    "grunt-contrib-clean": "^0.7.0",
-    "grunt-contrib-connect": "^1.0.2",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-uglify": "^1.0.1",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-gh-pages": "^1.1.0",
-    "grunt-grunticon": "^2.2.3",
-    "grunt-postcss": "^0.8.0",
-    "grunt-sass": "^1.0.0",
-    "grunt-svgmin": "^3.1.0"
-=======
   "name": "Boiler-Naked",
   "version": "1.0.0",
   "description": "Super naked boilerplate site.",
@@ -34,6 +11,5 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-connect": "^5.0.0"
->>>>>>> boiler-gulp
   }
 }
