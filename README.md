@@ -20,6 +20,13 @@ Installation
 -----------
 - `npm install`
 
+Use
+---
+- Download or clone repo
+- Via command line, navigate to directory
+- Run `gulp`
+- In your browser, navigate to `localhost:8080`
+
 Sources
 -------
 - https://www.npmjs.com/package/gulp-connect
