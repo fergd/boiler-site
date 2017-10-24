@@ -26,6 +26,11 @@ Version
 ---
 1.0
 
+Requirements
+---
+- Node
+- Gulp
+
 Installation
 ---
 - `npm install`
