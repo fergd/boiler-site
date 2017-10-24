@@ -6,13 +6,11 @@ Branches TOC
 ---
 Check out other branches for different starter templates.
 - (master) boiler-naked
-- boiler-jekyll
-- boiler-sass
-- boiler-vue
+- boiler-basics
 
-Boiler-Naked
+Boiler-Vue.js
 ---
-A very barbones startup environment. Literally no frills. Good for trying out an idea super quick like. 
+A very barbones startup environment with Vuejs. This is not a Vue instance with CLI and Webpack. This is literally for just screwing around right now. 
 
 What's in the box?
 ----
@@ -21,6 +19,7 @@ What's in the box?
   - Gulp task runner that contains
     - local server
     - live reload
+  - Link to Vue.js CDN
 
 Version
 ---
@@ -46,6 +45,7 @@ Sources
 ---
 - https://www.npmjs.com/package/gulp-connect
 - https://www.npmjs.com/package/gulp
+- https://vuejs.org/
 
 License
 ---

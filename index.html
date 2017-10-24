@@ -3,14 +3,22 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="">		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+		<meta name="description" content="">
 		<title></title>
-		<!-- <link rel="stylesheet" href=""> -->		
 	</head>
 	<body>
-		<!--[if lte IE 9]>
-	        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-	    <![endif]-->
-		<h1>Get Going</h1>
+		<div id="app">
+		  <h1>{{ message }}</h1>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+		<script>
+			var app = new Vue({
+			  el: '#app',
+			  data: {
+			    message: 'Boiler-Vue.js'
+			  }
+			})
+		</script>
 	</body>
 </html>
