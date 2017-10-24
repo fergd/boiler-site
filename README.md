@@ -1,14 +1,15 @@
 Boiler Site
 ===========
 
-The barbones startup environment. 
+A very barbones startup environment. Literally no frills. Good for trying out an idea super quick like. 
 
 What's in the box?
 ----
 
-  - Basic HTML file with boilerplate code
-  - Gulp task runner that
-    - Starts up a local server
+  - Basic HTML file with boilerplate markup
+  - Gulp task runner that contains
+    - local server
+    - live reload
 
 Version
 ----
@@ -17,10 +18,13 @@ Version
 
 Installation
 -----------
-- NPM Install
+- `npm install`
+
+Sources
+-------
+- https://www.npmjs.com/package/gulp-connect
+- https://www.npmjs.com/package/gulp
 
 License
 ----
-
 MIT
-

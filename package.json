@@ -1,7 +1,7 @@
 {
-  "name": "Boiler-Gulp",
+  "name": "Boiler-Naked",
   "version": "1.0.0",
-  "description": "Super naked site boilerplate.",
+  "description": "Super naked boilerplate site.",
   "license": "MIT",
   "author": "Christan Fergus",
   "repository": {
@@ -9,6 +9,7 @@
     "url": "https://github.com/fergd/boiler-site"
   },
   "devDependencies": {
-    
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0"
   }
 }
