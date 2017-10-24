@@ -6,9 +6,8 @@ Branches TOC
 ---
 Check out other branches for different starter templates.
 - (master) boiler-naked
-- boiler-jekyll
-- boiler-sass
-- boiler-vue
+- boiler-basics
+- boiler-vuejs
 
 Boiler-Naked
 ---
